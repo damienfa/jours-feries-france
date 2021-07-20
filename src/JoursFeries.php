@@ -23,7 +23,7 @@ class JoursFeries
         return $date->setTime(0, 0, 0);
     }
 
-    private static function checkZone(string $zone = 'Métropole'): string
+    private static function checkZone(?string $zone = 'Métropole'): string
     {
         if (! in_array($zone, self::ZONES)) {
             throw new InvalidArgumentException('Zone non valide, les valeurs attentues sont : '.implode(', ', self::ZONES));
@@ -32,7 +32,7 @@ class JoursFeries
         return $zone;
     }
 
-    public static function forYear(int $year, string $zone = 'Métropole'): array
+    public static function forYear(int $year, ?string $zone = 'Métropole'): array
     {
         $zone = self::checkZone($zone);
 
@@ -57,17 +57,18 @@ class JoursFeries
         return array_filter($joursFeries);
     }
 
-    public static function isFerie(DateTime $date, string $zone = 'Métropole'): bool
+    public static function isFerie(DateTime $date, ?string $zone = 'Métropole'): bool
     {
         $date = self::normalizeDateTime($date);
         // return date in $date.for_year(date.year, zone).values()
         return in_array($date, self::forYear((int) $date->format('Y'), $zone));
     }
 
-    public static function getNextFerie(DateTime $date, string $zone = 'Métropole'): array
+    public static function getNextFerie(DateTime $date, ?string $zone = 'Métropole'): array
     {
         $foundDate = null;
         // there should be better ways to do this, I mean really
+        // TODO optimiser en limitant le re-calcul des jours fériés d'une année.
         while (! $foundDate) {
             if (self::isFerie($date, $zone)) {
                 $foundDate = $date;
@@ -125,7 +126,7 @@ class JoursFeries
         }
     }
 
-    public static function vendrediSaint(int $year, string $zone = 'Métropole')
+    public static function vendrediSaint(int $year, ?string $zone = 'Métropole')
     {
         $zone = self::checkZone($zone);
         if ($zone == 'Alsace-Moselle') {
@@ -232,7 +233,7 @@ class JoursFeries
         }
     }
 
-    public static function deuxiemeJourDeNoel(int $year, string $zone = 'Métropole')
+    public static function deuxiemeJourDeNoel(int $year, ?string $zone = 'Métropole')
     {
         $zone = self::checkZone($zone);
         if ($zone === 'Alsace-Moselle') {

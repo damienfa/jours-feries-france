@@ -1,10 +1,11 @@
 # Jours Fériés France
 
-Classe de calcul des dates de jours fériés en France (métropole + cas spécifiques)
+Classe de calcul des dates de jours fériés en France (métropole + cas spécifiques).
+J'4'ai ajouté une classe JoursAdministratifs pour calculer les délais administratifs courants par rapport à une date.
 
 Très très (très) inspiré de https://github.com/etalab/jours-feries-france
 
-## Usage
+## Usage de la classe `JoursFeries`
 
 ```php
 
@@ -38,4 +39,24 @@ JoursFeries::isFerie(new DateTime("25-12-2019"), "Métropole");
 # -> True
 JoursFeries::getNextFerie(new DateTime("24-12-2019"),"Métropole");
 # -> new DateTime("25-12-2019")
+```
+
+## Usage de la classe `JoursAdministratifs`
+
+```php
+
+// Obtenir la date après 10 jours calendaires
+JoursAdministratifs::addJourCalendaire(new DateTime(), 10);
+// Obtenir la date après 10 jours ouvrables
+JoursAdministratifs::addJourOuvrable(new DateTime(), 10);
+// Obtenir la date après 10 jours ouvrés
+JoursAdministratifs::addJourOuvre(new DateTime(), 10);
+
+
+// Obtenir la date il y a 10 jours ouvrés (dans le passé donc)
+JoursAdministratifs::subJourOuvre(new DateTime(), 10);
+
+// Obtenir la date après 10 jours ouvrables en Alsasce-Moselle
+JoursAdministratifs::addJourOuvrable(new DateTime('20-12-2017'), 10, 'Alsace-Moselle');
+
 ```
