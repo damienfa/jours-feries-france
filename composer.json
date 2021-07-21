@@ -1,12 +1,12 @@
 {
-    "name": "davel_x/jours-feries-france",
-    "description": "Classe de calcul des dates de jours fériés en France (métropole + cas spécifiques)",
+    "name": "hercule-tech/jours-feries-france",
+    "description": "This lightweight PHP library provides simple methods to find all French public holidays 🇫🇷 (even those specific to territories, such as from Alsace-Moselle, or from France d'Outre-Mer) ; calculate dates in working days, \"délai franc\" etc.",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "David Brukarz",
-            "email": "davel_x@hotmail.com"
+            "name": "Hercule Tech",
+            "email": "tech@hercule.co"
         }
     ],
     "scripts": {
