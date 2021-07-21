@@ -59,4 +59,21 @@ JoursAdministratifs::subJourOuvre(new DateTime(), 10);
 // Obtenir la date après 10 jours ouvrables en Alsasce-Moselle
 JoursAdministratifs::addJourOuvrable(new DateTime('20-12-2017'), 10, 'Alsace-Moselle');
 
+// Obtenir la date après 10 jours calendaires mais si le dernier jour n'est pas ouvré on renvoie le prochain jour ouvré
+JoursAdministratifs::addJourFranc(new DateTime('14-12-2020'), 10);
+
 ```
+
+## TODO
+
+- Automatiser les tests dans gitlab-ci
+- Publier sur packagist
+
+## FAQ
+
+(ouais bon pour l'instant y'a que moi qui me pose des questions)
+
+- Pourquoi pas de JoursAdministratifs::subJourFranc() ?
+
+  Parce que la règle de fin de délai rend le calcul aléatoire.
+  Prenons par exemple un délai finissant le 28 décembre 2020, un lundi : les jours précédents sont respectivement un dimanche, un samedi et un vendredi de Noël. Il est très possible que le délai se soit fini le vendredi, le samedi ou le dimanche reporté au lundi... ce qui veut dire qu'on ne peut pas vraiment calculer une date de départ mais un intervalle de départs possibles. Peut-être qu'on le fera un jour. :)

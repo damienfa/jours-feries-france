@@ -109,4 +109,53 @@ final class JoursAdministratifsTest extends TestCase
             JoursAdministratifs::subJourOuvre(new DateTime('30-12-2017'), 10)
         );
     }
+
+    /**
+     * testAddJourFranc.
+     *
+     * @testdox Adding JourFranc days should return calendar days + skipping days 6 ans 7 and férié for last day
+     */
+    public function testAddJourFranc(): void
+    {
+        $this->assertEquals(
+            new DateTime('28-12-2020 23:59:59'),
+            JoursAdministratifs::addJourFranc(new DateTime('21-12-2020'), 6)
+        );
+        $this->assertEquals(
+            new DateTime('28-12-2020 23:59:59'),
+            JoursAdministratifs::addJourFranc(new DateTime('21-12-2020'), 3)
+        );
+        // exemples pris ici :
+        // https://www.service-public.fr/particuliers/vosdroits/F31111
+        $this->assertEquals(
+            new DateTime('21-12-2020 23:59:59'),
+            JoursAdministratifs::addJourFranc(new DateTime('09-12-2020'), 10)
+        );
+        $this->assertEquals(
+            new DateTime('11-12-2020 23:59:59'),
+            JoursAdministratifs::addJourFranc(new DateTime('30-11-2020'), 10)
+        );
+        $this->assertEquals(
+            new DateTime('28-12-2020 23:59:59'),
+            JoursAdministratifs::addJourFranc(new DateTime('14-12-2020'), 10)
+        );
+    }
+
+    /**
+     * testAddJourFrancAM.
+     *
+     * @testdox Adding JourFranc days in Alsace Moselle should return 1 day later (because there is 1 more férié day after chirstmas, les chanceux)
+     */
+    public function testAddJourFrancAM(): void
+    {
+        // J'ai pris une année où Noël et le 2e jour de Noël ne tombent pas un samedi :)
+        $this->assertEquals(
+            new DateTime('28-12-2016 23:59:59'),
+            JoursAdministratifs::addJourFranc(new DateTime('21-12-2016'), 6, 'Alsace-Moselle')
+        );
+        $this->assertEquals(
+            new DateTime('27-12-2016 23:59:59'),
+            JoursAdministratifs::addJourFranc(new DateTime('21-12-2016'), 3, 'Alsace-Moselle')
+        );
+    }
 }
