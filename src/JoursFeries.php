@@ -188,6 +188,8 @@ class JoursFeries
 
             return self::paques($year)->sub($dateInterval);
         }
+
+        return null;
     }
 
     /**
@@ -204,6 +206,8 @@ class JoursFeries
 
             return self::paques($year)->add($dateInterval);
         }
+
+        return null;
     }
 
     /**
@@ -220,6 +224,8 @@ class JoursFeries
 
             return self::paques($year)->add($dateInterval);
         }
+
+        return null;
     }
 
     /**
@@ -250,6 +256,8 @@ class JoursFeries
 
             return  $date->setDate($year, 1, 1);
         }
+
+        return null;
     }
 
     /**
@@ -266,6 +274,8 @@ class JoursFeries
 
             return  $date->setDate($year, 5, 1);
         }
+
+        return null;
     }
 
     /**
@@ -282,6 +292,8 @@ class JoursFeries
 
             return  $date->setDate($year, 5, 8);
         }
+
+        return null;
     }
 
     /**
@@ -298,6 +310,8 @@ class JoursFeries
 
             return  $date->setDate($year, 7, 14);
         }
+
+        return null;
     }
 
     /**
@@ -314,6 +328,8 @@ class JoursFeries
 
             return  $date->setDate($year, 11, 1);
         }
+
+        return null;
     }
 
     /**
@@ -330,6 +346,8 @@ class JoursFeries
 
             return  $date->setDate($year, 8, 15);
         }
+
+        return null;
     }
 
     /**
@@ -346,6 +364,8 @@ class JoursFeries
 
             return  $date->setDate($year, 11, 11);
         }
+
+        return null;
     }
 
     /**
@@ -362,6 +382,8 @@ class JoursFeries
 
             return  $date->setDate($year, 12, 25);
         }
+
+        return null;
     }
 
     /**
@@ -379,5 +401,7 @@ class JoursFeries
 
             return  $date->setDate($year, 12, 26);
         }
+
+        return null;
     }
 }

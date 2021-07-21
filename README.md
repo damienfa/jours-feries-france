@@ -1,7 +1,8 @@
 # Jours Fériés France
 
 Classe de calcul des dates de jours fériés en France (métropole + cas spécifiques).
-J'4'ai ajouté une classe JoursAdministratifs pour calculer les délais administratifs courants par rapport à une date.
+
+J'ai ajouté une classe `JoursAdministratifs` pour calculer les délais administratifs courants par rapport à une date.
 
 Très très (très) inspiré de https://github.com/etalab/jours-feries-france
 
