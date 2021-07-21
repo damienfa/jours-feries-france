@@ -1,10 +1,10 @@
 # Jours Fériés, jours ouvrés, ouvrables, en France et ses régions
 
 Cette bibliothéque PHP propose des méthodes simples pour :
-- trouver la dates de l'ensemble des Jours Fériés Français 🇫🇷 (même ceux spécifiques à l'Alsace-Moselle, la Réunion et autres particularités de territoires) ;
-- effectuer des calculs de dates en jours ouvrés / ouvrables, en prenant en compte tous les jours fériés du territoire spécifié ;
-- calculer des délais "francs" ; 
-- etc. 
+- retrouver l'ensemble des Jours Fériés Français 🇫🇷 (même ceux spécifiques à des territoires, tel que l'Alsace-Moselle, ou la France d'Outre-Mer) ;
+- effectuer des calculs de dates en jours ouvrés, ouvrables, tout en tenant compte des jours fériés du territoire spécifié ;
+- calculer un "délai franc administratif" ; 
+- … et bien d'autres surprises !  
 
 Très très (très) inspiré de https://github.com/etalab/jours-feries-france (mais en PHP, et avec quelques bonus utiles) ⭐️ 
 
