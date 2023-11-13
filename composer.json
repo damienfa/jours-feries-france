@@ -17,6 +17,9 @@
             "src/"
         ]
     },
+    "require": {
+        "ext-calendar": "*"
+    },
     "require-dev": {
         "phpunit/phpunit": "^9"
     }
